@@ -12,14 +12,14 @@ class FoodTruck
 
   def check_stock(item)
     if @inventory[item] == nil
-      return 0
+      @inventory[item] = 0
     else
       @inventory[item]
-    end  
+    end
   end
 
   def stock(item, amount)
-    @inventory[item] = amount
+    check_stock(item)
+    @inventory[item] += amount
   end
-
 end
