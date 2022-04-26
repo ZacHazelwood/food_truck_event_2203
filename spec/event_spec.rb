@@ -160,5 +160,4 @@ RSpec.describe Event do
 
     expect(event.total_inventory).to eq(expected)
   end
-
 end
