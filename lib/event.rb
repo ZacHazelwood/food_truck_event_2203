@@ -21,4 +21,12 @@ class Event
     end
   end
 
+  def food_trucks_that_sell(item)
+    items_for_sale = []
+    @food_trucks.map do |food_truck|
+      items_for_sale << food_truck if food_truck.inventory.include?(item)
+    end
+    items_for_sale
+  end
+
 end
