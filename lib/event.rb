@@ -36,4 +36,21 @@ class Event
     items.sort_by { |item| item.name}
   end
 
+  def overstocked_items
+    total_items = {}
+    @food_trucks.each do |food_truck|
+      food_truck.inventory.each do |item, quantity|
+        if total_items[item] == nil
+          total_items[item] = { quantity: quantity, food_trucks: [food_truck] }
+        else
+          total_items[item][:quantity] += quantity
+          total_items[item][:food_trucks] << food_truck
+        end
+      end
+    end
+    total_items.select do |_item, data|
+      data[:quantity] > 50 && data[:food_trucks].length > 1
+    end.keys    
+  end
+
 end
