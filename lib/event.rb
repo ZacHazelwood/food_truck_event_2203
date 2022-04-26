@@ -1,3 +1,4 @@
+require 'date'
 require './lib/item'
 require './lib/food_truck'
 
@@ -55,5 +56,9 @@ class Event
       end
     end
     total_items
+  end
+
+  def date
+    today = Date.today.strfttime("%d/%m/%Y")
   end
 end
