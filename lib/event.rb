@@ -61,4 +61,13 @@ class Event
   def date
     today = Date.today.strfttime("%d/%m/%Y")
   end
+
+  def sell(item, quantity)
+    if total_inventory[item] == nil || total_inventory[item][:quantity] < quantity
+      return false
+    else
+      # require "pry"; binding.pry
+    end
+
+  end
 end
