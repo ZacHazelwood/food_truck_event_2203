@@ -29,4 +29,11 @@ class Event
     items_for_sale
   end
 
+  def sorted_item_list
+    items = @food_trucks.map do |food_truck|
+      food_truck.inventory.keys
+    end.flatten.uniq
+    items.sort_by { |item| item.name}
+  end
+
 end
